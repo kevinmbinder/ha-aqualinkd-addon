@@ -1,0 +1,46 @@
+name: AqualinkD
+version: "2.3.6"
+slug: aqualinkd
+description: >-
+  Jandy/Zodiac AquaLink RS pool controller bridge. Reads RS-485 serial data
+  and publishes pool devices to Home Assistant via MQTT discovery.
+url: https://github.com/aqualinkd/AqualinkD
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: services
+
+# USB-to-RS485 serial adapter
+devices:
+  - /dev/ttyUSB0
+
+# AqualinkD web UI (accessible at http://<ha-ip>:6171 after install)
+ports:
+  "80/tcp": 6171
+ports_description:
+  "80/tcp": AqualinkD Web UI
+webui: "http://[HOST]:[PORT:80]"
+
+# Persistent storage for aqualinkd.conf and cron schedules
+map:
+  - data:rw
+
+# Default option values shown in the add-on UI
+options:
+  serial_port: /dev/ttyUSB0
+  mqtt_address: "mqtt://core-mosquitto:1883"
+  mqtt_discovery_topic: homeassistant
+  log_level: NOTICE
+  panel_type: RS-8 Combo
+
+# Option types / validation
+schema:
+  serial_port: str
+  mqtt_address: str
+  mqtt_discovery_topic: str
+  log_level: list(DEBUG|NOTICE|WARNING|ERROR)
+  panel_type: str
+  # Leave blank if Mosquitto allows anonymous connections
+  mqtt_user: str?
+  mqtt_passwd: password?

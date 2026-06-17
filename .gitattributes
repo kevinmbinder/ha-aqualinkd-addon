@@ -1,0 +1,6 @@
+# Ensure shell scripts always have LF line endings in the repo and when
+# checked out on any OS — critical for Docker COPY and the bash shebang.
+*.sh    text eol=lf
+Dockerfile text eol=lf
+*.yaml  text eol=lf
+*.conf  text eol=lf
