@@ -26,7 +26,7 @@ display_warnings_in_web=yes
 report_zero_spa_temp=yes
 report_zero_pool_temp=yes
 mqtt_address=${MQTT_ADDRESS}
-mqtt_discovery_topic=${MQTT_DISCOVERY}
+mqtt_hassio_discover_topic=${MQTT_DISCOVERY}
 mqtt_timed_update=YES
 CONF
 
