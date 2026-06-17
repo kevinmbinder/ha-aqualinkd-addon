@@ -18,8 +18,8 @@ RUN curl -fsSL \
 # Build with default AQ_MANAGER=true so MQTT discovery and all config
 # parameters are available. libsystemd is present at runtime in the HA base
 # image; the journal socket simply won't exist so logging falls back to stderr.
-ARG CACHE_BUST=20260617b
-RUN make clean && make container AQ_MANAGER=true
+ARG CACHE_BUST=20260617c
+RUN make clean && make aqualinkd AQ_CONTAINER=true AQ_MANAGER=true
 
 # ── Stage 2: runtime image ────────────────────────────────────────────────────
 FROM ${BUILD_FROM}
