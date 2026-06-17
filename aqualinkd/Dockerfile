@@ -6,7 +6,7 @@ FROM debian:bookworm AS builder
 ARG AQUALINKD_VERSION
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ca-certificates curl make gcc && \
+    apt-get install -y --no-install-recommends ca-certificates curl make gcc libc6-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
