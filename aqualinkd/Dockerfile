@@ -30,9 +30,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /build/release/aqualinkd /usr/local/bin/aqualinkd
-COPY --from=builder /build/release/rs485mon  /usr/local/bin/rs485mon
 COPY --from=builder /build/web/              /var/www/aqualinkd/
-COPY --from=builder /build/release/aqualinkd.conf /etc/aqualinkd.conf.defaults
 
 COPY run.sh /run.sh
 RUN sed -i 's/\r$//' /run.sh && chmod a+x /run.sh
