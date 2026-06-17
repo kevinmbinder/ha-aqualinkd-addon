@@ -25,7 +25,7 @@ options:
   mqtt_discovery_topic: homeassistant
   log_level: NOTICE
   panel_type: RS-8 Combo
-  device_id: "0x08"
+  device_id: "0x09"
 schema:
   serial_port: str
   mqtt_address: str
